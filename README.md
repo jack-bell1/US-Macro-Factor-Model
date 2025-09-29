@@ -36,16 +36,25 @@ I will not be using any more complex models such as ARIMA, SARIMAX, LSTM, Ridge,
 
 In layman's terms, we are not looking to predict with this model; instead, we are looking to explain.
 
-By design, this means we are technically violating Gauss-Markov assumptions as we are purposefully looking for exogenity, so that we can extract it. This would mean our residual extraction will have noise, but I am assuming it is negligible. On financial time series, we find that the assumptions are generally violated, we are likely to have heteroskedastic residuals, and depending on the data we use, we will probably have serial correlation. 
+By design, this means we are technically violating Gauss-Markov assumptions as we are purposefully looking for exogeneity, so that we can extract it. This would mean our residual extraction will have noise, but I am assuming it isn't very important. In financial time series, we often find that the assumptions are generally violated, resulting in heteroskedastic residuals. Depending on the data used, we are likely to encounter serial correlation. 
 
 
 
-# TL;DR:
+## TL;DR:
 Built a macro factor model using tradeable proxies and residualized exposures, which will be extracted as a feature set to statistically identify US market regimes (bull, bear, sideways) for trading signal generation.
 
 ---
 
 # Sample Results:
+## Regression Results:
+#### Rolling R-Squared for all factors on US Equity:
+After making the EW rolling OLS regression, I plotted the rolling $R^2$ across the time series to get a feel for how the model performed. Note that we do have autocorrelation and heteroskedastic residuals, so by Gauss-Markov, OLS here is not BLUE, but it is the best thing we have. This was completed for each factor, where we had average rolling $R^2$ values of at least 0.65, except for the USD Strength and Commodities Factors, which I imagine have more global exposures. 
+Two Sigma made their model represent global markets, where they included aspects such as Emerging Markets (EM) factors. I would imagine they would have a stronger fit in this area by using these external features. 
 ![Rolling R-Squared](https://github.com/jack-bell1/US-Macro-Factor-Model/blob/main/R2_rolling.png)
+
+## PCA Results
+I ran PCA, hoping to reduce the size of the feature set. I have 7 factors, 
+#### Main PC Contributors Plotted with a Time Gradient 
 ![Main PC Contributors Plotted with a Time Gradient](https://github.com/jack-bell1/US-Macro-Factor-Model/blob/main/3_pcs_time_gradient.gif)
+#### Main PC Contributors Plotted with a Volatility Gradient
 ![Main PC Contributors Plotted with a Volatility Gradient](https://github.com/jack-bell1/US-Macro-Factor-Model/blob/main/3_pcs_vol_gradient.gif)
