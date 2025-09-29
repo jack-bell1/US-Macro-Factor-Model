@@ -43,6 +43,9 @@ By design, this means we are technically violating Gauss-Markov assumptions as w
 # TL;DR:
 Built a macro factor model using tradeable proxies and residualized exposures, which will be extracted as a feature set to statistically identify US market regimes (bull, bear, sideways) for trading signal generation.
 
+---
 
 # Sample Results:
 ![Rolling R-Squared](https://github.com/jack-bell1/US-Macro-Factor-Model/blob/main/R2_rolling.png)
+![Main PC Contributors Plotted with a Time Gradient](https://github.com/jack-bell1/US-Macro-Factor-Model/blob/main/3_pcs_time_gradient.gif)
+![Main PC Contributors Plotted with a Volatility Gradient](https://github.com/jack-bell1/US-Macro-Factor-Model/blob/main/3_pcs_vol_gradient.gif)
