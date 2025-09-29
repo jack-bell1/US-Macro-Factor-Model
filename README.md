@@ -45,4 +45,4 @@ Built a macro factor model using tradeable proxies and residualized exposures, w
 
 
 # Sample Results:
-![Rolling R-Squared](ML/Models/R2_rolling.png)
+![Rolling R-Squared](https://github.com/jack-bell1/US-Macro-Factor-Model/blob/main/R2_rolling.png)
