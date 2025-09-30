@@ -114,8 +114,12 @@ By design, PCA makes the feature set orthogonal. Plotting the matrix including t
 ![PC Correlations](https://github.com/jack-bell1/US-Macro-Factor-Model/blob/main/pca_correlations.png)
 
 #### Thoughts on the PCA Features:
-I will save all 7 PCs and test how they work on regime models, then I will compare the tests to situations where I use only PCs 1-5, and another test using PCs 1-4, etc. This is because I am unsure how much explained variance we can lose. For example, I have read that 95% explained variance is sometimes a rule of thumb, but the problem with that is that I believe this would include noise in the regime model. Then again, we see evidently that the PCs explained variance diminishes after PC4, so if we only use PCs 1-4, our cumulative variance explained will be 80% of our original raw feature set, and if we include PC5, then it would explain 90%. 
+I will save all 7 PCs and test how they work on regime models, then I will compare the tests to situations where I use only PCs 1-5, and another test using PCs 1-4, etc. This is because I am unsure how much explained variance we can lose. For example, I have read that 95% explained variance is sometimes a rule of thumb, but the problem with that is that I believe this would include noise in the regime model. 
+
+Then again, we see evidently that the PCs explained variance diminishes after PC4, so if we only use PCs 1-4, our cumulative variance explained will be 80% of our original raw feature set, and if we include PC5, then it would explain 90%. 
 Given I am unsure which path to take, it could be worth testing all to see if there are any notable differences in regime detection.  
+
+
 ---
 
 # Closing Remarks 
