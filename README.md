@@ -1,5 +1,31 @@
 # US-Macro-Factor-Model
+---
+## Skills Utilized:
+- Regression Modeling (Supervised Learning)
+- Regression Analysis
+- Principal Component Analysis (PCA - Unsupervised Learning)
+- Time Series Analysis
+- Correlation Analysis
+- Residual Analysis
+- Distribution Analysis
+- Statistical Tests (Ljung-Box, Jarque-Bera)
+- Exploratory Data Analysis (EDA)
+- Data Visualization
 
+
+## Tech Stack:
+The project was completed in Python; the libraries used were as follows:
+- Pandas
+- NumPy
+- Scikit-learn
+- statsmodels
+- seaborn
+- matplotlib
+- plotly
+- scipy
+- yfinance
+
+---
 ### Motivations:
 Inspired by [Two Sigma Factor Lens](https://www.twosigma.com/articles/thematic-research-introducing-the-two-sigma-factor-lens), which models broad macro risk drivers to reduce correlation and improve portfolio construction. The paper uses tradeable proxies to enable a portfolio construction from the factor model. However, my approach will be slightly different.
 
@@ -26,9 +52,9 @@ Build a factor model to represent major US macro risks. Use it to detect market 
 - US Equity: We want to predict regimes inside this proxy. We still want to residualize to get the 'pure effect' of US Equities. 
 - We are using the other factors to interpret SPY's behaviour - this will become apparent in the correlation analysis
 
-Note: Our data must begin in 2007 due to the inception of our UUP and HYG proxies; unfortunately, I was not able to find any data that would provide a representation of these factors with an earlier date. 
+Note: Our data must begin in 2007, as this is the year our UUP and HYG proxies were introduced; unfortunately, I was unable to find any data that would provide a representation of these factors before this date. 
 
-Correlated factors like Credit or Commodities will be residualized against Equity/Interest Rates to isolate pure exposures using simple regression models. 
+Correlated factors, such as credit or Commodities, will be residualized against equity or interest rates to isolate pure exposures using simple regression models. 
 
 ### Methodology - Why a simple regression Model?
 
@@ -58,7 +84,7 @@ I ran PCA, hoping to reduce the size of the feature set. I have 7 factors, and I
 ![Scree Plot displaying explained variance on an individual + cumulative basis](https://github.com/jack-bell1/US-Macro-Factor-Model/blob/main/pca_scree_plt.png)
 
 #### PCA Loadings:
-It can be at times difficult to label PCs even though we can see the weights, perhaps we can imply what a PC could be but we should always take it with a grain of salt. I am going to suggest what the PCs could be based on what the weights are although they could be wrong:
+It can be at times difficult to label PCs, even though we can see the weights; perhaps we can imply what a PC could be, but we should always take it with a grain of salt. I am going to suggest what the PCs could be based on what the weights are, although they could be wrong:
 - PC1 - Macroeconomic Risk Premium
 - PC2 - Equity vs Credit
 - PC3 - USD Strength & Commodities combined (interesting point here is that both of these had the largest residual bandwidth on average
@@ -79,6 +105,6 @@ If we look at how these clusters change against volatility, we can see here that
 ![Main PC Contributors Plotted with a Volatility Gradient](https://github.com/jack-bell1/US-Macro-Factor-Model/blob/main/3_pcs_vol_gradient.gif)
 
 #### PC Correlations + Original US Equity Factor
-By design PCA makes the feature set orthogonal. Plotting the matrix including the original US equity factor, we can see that correlations are weak, but present, interestingly enough the only properties with a notable correlation are the noise components, which makes sense as they explain less variance, suggesting that they are closer to the original feature than others. 
+By design, PCA makes the feature set orthogonal. Plotting the matrix including the original US equity factor, we can see that correlations are weak, but present; interestingly enough, the only properties with a notable correlation are the noise components, which makes sense as they explain less variance, suggesting that they are closer to the original feature than others. 
 
 ![PC Correlations](https://github.com/jack-bell1/US-Macro-Factor-Model/blob/main/pca_correlations.png)
