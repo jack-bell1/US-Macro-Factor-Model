@@ -23,7 +23,7 @@ Build a factor model to represent major US macro risks. Use it to detect market 
 
 
 ### Factor motivations : 
-- US Equity: The dependent variable, we want to predict regimes inside this proxy, so this factor will be used as a reference.
+- US Equity: We want to predict regimes inside this proxy. We still want to residualize to get the 'pure effect' of US Equities. 
 - We are using the other factors to interpret SPY's behaviour - this will become apparent in the correlation analysis
 
 Note: Our data must begin in 2007 due to the inception of our UUP and HYG proxies; unfortunately, I was not able to find any data that would provide a representation of these factors with an earlier date. 
@@ -53,10 +53,32 @@ Two Sigma made their model represent global markets, where they included aspects
 ![Rolling R-Squared](https://github.com/jack-bell1/US-Macro-Factor-Model/blob/main/R2_rolling.png)
 
 ## PCA Results
-I ran PCA, hoping to reduce the size of the feature set. I have 7 factors, and I wanted to see if it was possible to compress the dataset for better interpretation. It turned out that 3 PCs explained around 70% of the variance amongst the 7 factors, and if we add PC4 to that, it will cumulatively explain around 85% variance, where the explained variance begins to diminish. 
+#### Explained Variance:
+I ran PCA, hoping to reduce the size of the feature set. I have 7 factors, and I wanted to see if it was possible to compress the dataset for better interpretation. It turned out that 3 PCs explained around 70% of the variance amongst the 7 factors, and if we add PC4 to that, it will cumulatively explain around 80% variance, where the explained variance begins to diminish.
 ![Scree Plot displaying explained variance on an individual + cumulative basis](https://github.com/jack-bell1/US-Macro-Factor-Model/blob/main/pca_scree_plt.png)
 
-#### Main PC Contributors Plotted with a Time Gradient 
+#### PCA Loadings:
+It can be at times difficult to label PCs even though we can see the weights, perhaps we can imply what a PC could be but we should always take it with a grain of salt. I am going to suggest what the PCs could be based on what the weights are although they could be wrong:
+- PC1 - Macroeconomic Risk Premium
+- PC2 - Equity vs Credit
+- PC3 - USD Strength & Commodities combined (interesting point here is that both of these had the largest residual bandwidth on average
+- PC4 - USD & Inflation
+- PC5 - Pure Combined Credit Factor?
+- PC6/7 - Reject, probably noise
+
+![PCA Factor Loadings](https://github.com/jack-bell1/US-Macro-Factor-Model/blob/main/pca_loadings.png)
+
+#### Main PC Contributors Plotted with a Time Gradient
+Given that the first 3 PCs explain 70% variance, I thought it could be interesting to plot their behaviour in 3D space. We see that through time, the PCs tend to cluster together. My thoughts are that this is because of our EW component in the regression. If we prioritize recent data, then the more recent it is, the more it can cluster together. 
+
 ![Main PC Contributors Plotted with a Time Gradient](https://github.com/jack-bell1/US-Macro-Factor-Model/blob/main/3_pcs_time_gradient.gif)
+
 #### Main PC Contributors Plotted with a Volatility Gradient
+If we look at how these clusters change against volatility, we can see here that as volatility increases, the observations tend to deviate more from the cluster. This makes sense because at certain times, we can expect the factors to somewhat converge and exhibit similar behaviour. 
+
 ![Main PC Contributors Plotted with a Volatility Gradient](https://github.com/jack-bell1/US-Macro-Factor-Model/blob/main/3_pcs_vol_gradient.gif)
+
+#### PC Correlations + Original US Equity Factor
+By design PCA makes the feature set orthogonal. Plotting the matrix including the original US equity factor, we can see that correlations are weak, but present, interestingly enough the only properties with a notable correlation are the noise components, which makes sense as they explain less variance, suggesting that they are closer to the original feature than others. 
+
+![PC Correlations](https://github.com/jack-bell1/US-Macro-Factor-Model/blob/main/pca_correlations.png)
