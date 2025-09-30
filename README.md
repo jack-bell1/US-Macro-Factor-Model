@@ -53,7 +53,9 @@ Two Sigma made their model represent global markets, where they included aspects
 ![Rolling R-Squared](https://github.com/jack-bell1/US-Macro-Factor-Model/blob/main/R2_rolling.png)
 
 ## PCA Results
-I ran PCA, hoping to reduce the size of the feature set. I have 7 factors, and I wanted to see if it was possible to compress the dataset for better interpretation. 
+I ran PCA, hoping to reduce the size of the feature set. I have 7 factors, and I wanted to see if it was possible to compress the dataset for better interpretation. It turned out that 3 PCs explained around 70% of the variance amongst the 7 factors, and if we add PC4 to that, it will cumulatively explain around 85% variance, where the explained variance begins to diminish. 
+![Scree Plot displaying explained variance on an individual + cumulative basis](https://github.com/jack-bell1/US-Macro-Factor-Model/blob/main/pca_scree_plt.png)
+
 #### Main PC Contributors Plotted with a Time Gradient 
 ![Main PC Contributors Plotted with a Time Gradient](https://github.com/jack-bell1/US-Macro-Factor-Model/blob/main/3_pcs_time_gradient.gif)
 #### Main PC Contributors Plotted with a Volatility Gradient
