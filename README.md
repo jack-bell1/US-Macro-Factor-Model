@@ -1,4 +1,7 @@
 # US-Macro-Factor-Model
+### Intro:
+##### Should you wish to view the code and see in greater detail what was done here, please refer to ![my Factor Model](https://github.com/jack-bell1/US-Macro-Factor-Model/blob/main/macro_factor_model%20(6).ipynb) in the repo titled `macro_factor_model(6).ipynb`. 
+##### I have included a TL;DR section to provide an overview of what the project was, with some sample results. The .ipynb file is a lot more vocal in explaining my thought processes and analyses, should you be interested!
 ---
 ## Skills Utilized:
 - Regression Modeling (Supervised Learning)
@@ -26,6 +29,7 @@ The project was completed in Python; the libraries used were as follows:
 - yfinance
 
 ---
+
 ### Motivations:
 Inspired by [Two Sigma Factor Lens](https://www.twosigma.com/articles/thematic-research-introducing-the-two-sigma-factor-lens), which models broad macro risk drivers to reduce correlation and improve portfolio construction. The paper uses tradeable proxies to enable a portfolio construction from the factor model. However, my approach will be slightly different.
 
@@ -108,3 +112,25 @@ If we look at how these clusters change against volatility, we can see here that
 By design, PCA makes the feature set orthogonal. Plotting the matrix including the original US equity factor, we can see that correlations are weak, but present; interestingly enough, the only properties with a notable correlation are the noise components, which makes sense as they explain less variance, suggesting that they are closer to the original feature than others. 
 
 ![PC Correlations](https://github.com/jack-bell1/US-Macro-Factor-Model/blob/main/pca_correlations.png)
+
+---
+
+# Closing Remarks 
+
+I am not entirely sure if this factor model will serve as a solid representation of the US Equity market. My initial hypothesis was that the US Market Regimes are simply defined by volatility and returns. This is theoretically all the things we would need to determine a 'bull','bear' or 'sideways market. 
+
+That being said, this factor model could have the potential to make this approach slightly more comprehensive. I am expecting to see more detailed features than the simple aforementioned labels. Perhaps there are periods of 'Crisis' which is different to a period of 'stress', perhaps there are times when we should be cautious in our trading, but not necessarily be in a crisis state. 
+
+I will save all dataframes which I think could be useful in the regime model.
+
+Perhaps we will also try to test this factor model against a simple baseline of VIX + returns as features to represent the SPY regimes. 
+
+## Looking Forward
+
+I am going to use these features to make a market regime detection system. I will also make many regime models using these different datasets, and possibly make new datasets to compare the regime detections. Then I plan on doing a comprehensive backtest of all the regime models to see which one is the most effective.
+
+### Learning:
+
+I have learned a lot in this project, getting a hands on deep dive on building a simple model and residualizing the factors, this is an appraoch I had never considered before undertaking this project. I was also able to do a deeper dive on PCA which has greatly fortified my knowledge in this area. I also really enjoyed analyzing the data from a static and rolling standpoint, where I found interesting relationships and insights throughout. 
+
+Looking forward to the next step.
