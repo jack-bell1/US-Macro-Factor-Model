@@ -113,17 +113,20 @@ By design, PCA makes the feature set orthogonal. Plotting the matrix including t
 
 ![PC Correlations](https://github.com/jack-bell1/US-Macro-Factor-Model/blob/main/pca_correlations.png)
 
+#### Thoughts on the PCA Features:
+I will save all 7 PCs and test how they work on regime models, then I will compare the tests to situations where I use only PCs 1-5, and another test using PCs 1-4, etc. This is because I am unsure how much explained variance we can lose. For example, I have read that 95% explained variance is sometimes a rule of thumb, but the problem with that is that I believe this would include noise in the regime model. Then again, we see evidently that the PCs explained variance diminishes after PC4, so if we only use PCs 1-4, our cumulative variance explained will be 80% of our original raw feature set, and if we include PC5, then it would explain 90%. 
+Given I am unsure which path to take, it could be worth testing all to see if there are any notable differences in regime detection.  
 ---
 
 # Closing Remarks 
 
-I am not entirely sure if this factor model will serve as a solid representation of the US Equity market. My initial hypothesis was that the US Market Regimes are simply defined by volatility and returns. This is theoretically all the things we would need to determine a 'bull','bear' or 'sideways market. 
+I am not entirely sure if this factor model will serve as a solid representation of the U.S. equity market. My initial hypothesis was that the US Market Regimes are simply defined by volatility and returns. This is theoretically all the things we would need to determine a 'bull', 'bear', or 'sideways market. 
 
-That being said, this factor model could have the potential to make this approach slightly more comprehensive. I am expecting to see more detailed features than the simple aforementioned labels. Perhaps there are periods of 'Crisis' which is different to a period of 'stress', perhaps there are times when we should be cautious in our trading, but not necessarily be in a crisis state. 
+That being said, this factor model could have the potential to make this approach slightly more comprehensive. I am expecting to see more detailed features than the simple aforementioned labels. Perhaps there are periods of 'Crisis' which are different from a period of 'stress', perhaps there are times when we should be cautious in our trading, but not necessarily be in a crisis state. 
 
-I will save all dataframes which I think could be useful in the regime model.
+I will save all dataframes that I think could be useful in the regime model.
 
-Perhaps we will also try to test this factor model against a simple baseline of VIX + returns as features to represent the SPY regimes. 
+Perhaps we will also try to test this factor model against a simple baseline of VIX + returns as features to represent the SPY regimes. I also wish to test the raw residuals and the raw returns against our PCs to determine which feature set is optimal.
 
 ## Looking Forward
 
@@ -131,6 +134,6 @@ I am going to use these features to make a market regime detection system. I wil
 
 ### Learning:
 
-I have learned a lot in this project, getting a hands on deep dive on building a simple model and residualizing the factors, this is an appraoch I had never considered before undertaking this project. I was also able to do a deeper dive on PCA which has greatly fortified my knowledge in this area. I also really enjoyed analyzing the data from a static and rolling standpoint, where I found interesting relationships and insights throughout. 
+I have learned a lot in this project, getting a hands-on deep dive on building a simple model and residualizing the factors, this is an approach I had never considered before undertaking this project. I was also able to do a deeper dive on PCA, which has greatly fortified my knowledge in this area. I also really enjoyed analyzing the data from a static and rolling standpoint, where I found interesting relationships and insights throughout. 
 
 Looking forward to the next step.
