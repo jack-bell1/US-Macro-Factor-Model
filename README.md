@@ -3,19 +3,6 @@
 ##### Should you wish to view the code and see in greater detail what was done here, please refer to ![my Factor Model](https://github.com/jack-bell1/US-Macro-Factor-Model/blob/main/macro_factor_model%20(6).ipynb) in the repo titled `macro_factor_model(6).ipynb`. 
 ##### I have included a TL;DR section to provide an overview of what the project was, with some sample results. The .ipynb file is a lot more vocal in explaining my thought processes and analyses, should you be interested!
 ---
-## Skills Utilized:
-- Regression Modeling (Supervised Learning)
-- Regression Analysis
-- Principal Component Analysis (PCA - Unsupervised Learning)
-- Time Series Analysis
-- Correlation Analysis
-- Residual Analysis
-- Distribution Analysis
-- Statistical Tests (Ljung-Box, Jarque-Bera)
-- Exploratory Data Analysis (EDA)
-- Data Visualization
-
-
 ## Tech Stack:
 The project was completed in Python; the libraries used were as follows:
 - Pandas
@@ -27,6 +14,18 @@ The project was completed in Python; the libraries used were as follows:
 - plotly
 - scipy
 - yfinance
+
+## Skills Utilized:
+- Regression Modeling (Supervised Learning)
+- Regression Analysis
+- Principal Component Analysis (PCA - Unsupervised Learning)
+- Time Series Analysis
+- Correlation Analysis
+- Residual Analysis
+- Distribution Analysis
+- Statistical Tests (Ljung-Box, Jarque-Bera)
+- Exploratory Data Analysis (EDA)
+- Data Visualization
 
 ---
 
