@@ -1,6 +1,6 @@
 # US-Macro-Factor-Model
 ### Intro:
-##### Should you wish to view the code and see in greater detail what was done here, please refer to ![my Factor Model](https://github.com/jack-bell1/US-Macro-Factor-Model/blob/main/macro_factor_model%20(6).ipynb) in the repo titled `macro_factor_model(6).ipynb`. 
+##### Should you wish to view the code and see in greater detail what was done here, please refer to![my Factor Model](https://github.com/jack-bell1/US-Macro-Factor-Model/blob/main/macro_factor_model.ipynb) in the repo titled `macro_factor_model.ipynb`. 
 ##### I have included a TL;DR section to provide an overview of what the project was, with some sample results. The .ipynb file is a lot more vocal in explaining my thought processes and analyses, should you be interested!
 ---
 ## Tech Stack:
